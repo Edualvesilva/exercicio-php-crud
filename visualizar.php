@@ -29,12 +29,14 @@ $listaAlunos = lerAlunos($conexao);
                     <th>2º Nota</th>
                     <th>Média</th>
                     <th>Situação</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 foreach ($listaAlunos as $aluno) { ?>
-                   <?php $media = ContarMedia($aluno["primeira"],$aluno["segunda"]) ?>
+                   <?php $media = ContarMedia($aluno["primeira"],$aluno["segunda"]);
+                   ?>
                     <tr>
                         <td>
                             <?= $aluno["nome"] ?>
@@ -46,8 +48,16 @@ $listaAlunos = lerAlunos($conexao);
 
                         <td><?=ContarMedia($aluno["primeira"],$aluno["segunda"])?></td>
 
-                        <td><?=situacao($media)?></td>
-                        <td><a href="atualizar.php?id=<?=$aluno["id"]?>">Editar</a> <a href="excluir.php?id=<?=$aluno["id"]?>">Excluir</a></td>
+                        <td <?php if(situacao($media) == "Aprovado"){
+                            echo " class='aprovado'";
+                        } elseif(situacao($media) == "Reprovado"){
+                            echo "class='reprovado'";
+                        } else{
+                            echo "class='recuperacao'";
+                        }
+                        
+                        ?> ><?=situacao($media);?></td>
+                        <td><a href="atualizar.php?id=<?=$aluno["id"]?>">Editar</a> <a class="excluir" href="excluir.php?id=<?=$aluno["id"]?>">Excluir</a></td>
                     </tr>
                 <?php } ?>
             </tbody>
@@ -56,6 +66,7 @@ $listaAlunos = lerAlunos($conexao);
         <p><a href="index.php">Voltar ao início</a></p>
     </div>
 
+    <script src="js/confirmar-excluir.js"></script>
 </body>
 
 </html>

@@ -47,7 +47,7 @@ if(isset($_POST["atualizar-dados"])){
         <!-- Campo somente leitura e desabilitado para edição.
         Usado apenas para exibição do valor da média -->
             <label for="media">Média:</label>
-            <input name="media" type="number" id="media" step="0.01" min="0.00" max="10.00" readonly disabled value="<?=$media?>">
+            <input  name="media" type="number" id="media" step="0.01" min="0.00" max="10.00" readonly disabled value="<?=$media?>">
         </p>
 
         <p>
@@ -65,6 +65,6 @@ if(isset($_POST["atualizar-dados"])){
 
 </div>
 
-
+    <script src="js/media-situacao.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-function ContarMedia(int $primeira,int $segunda):float{
+function ContarMedia(float $primeira,float $segunda):float{
     $media = ($primeira + $segunda) / 2;
     return $media;
 };

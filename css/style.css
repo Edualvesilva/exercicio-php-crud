@@ -16,3 +16,58 @@ a {
 h2 a { font-size: 0.9rem;}
 
 a:hover, a:focus { text-decoration: underline;}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+
+thead {
+    background-color: #f2f2f2;
+}
+
+th {
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+}
+
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+
+td a {
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+
+.aprovado {
+    font-weight: bold;
+    color: green; /* You can change this color based on the situation */
+}
+
+.reprovado{
+    font-weight: bold;
+    color: red;
+}
+
+.recuperacao{
+    font-weight: bold;
+    color: chocolate;
+}
+
+tbody tr:hover {
+    background-color: #ddd;
+}

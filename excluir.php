@@ -5,3 +5,4 @@ $idAluno = filter_input(INPUT_GET,"id",FILTER_SANITIZE_NUMBER_INT);
 
 ApagarAluno($conexao,$idAluno);
 header("location:visualizar.php");
+?>
