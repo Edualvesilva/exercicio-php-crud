@@ -34,19 +34,20 @@ $listaAlunos = lerAlunos($conexao);
             <tbody>
                 <?php
                 foreach ($listaAlunos as $aluno) { ?>
+                   <?php $media = ContarMedia($aluno["primeira"],$aluno["segunda"]) ?>
                     <tr>
                         <td>
                             <?= $aluno["nome"] ?>
                         </td>
 
-                        <td><?= $aluno["primeira"] ?></td>
+                        <td><?= formatarNota($aluno["primeira"]) ?></td>
 
-                        <td><?= $aluno["segunda"] ?></td>
+                        <td><?= formatarNota($aluno["segunda"]) ?></td>
 
                         <td><?=ContarMedia($aluno["primeira"],$aluno["segunda"])?></td>
 
-                        <td></td>
-                        <td><a href="atualizar.php">Editar</a> <a href="excluir.php">Excluir</a></td>
+                        <td><?=situacao($media)?></td>
+                        <td><a href="atualizar.php?id=<?=$aluno["id"]?>">Editar</a> <a href="excluir.php?id=<?=$aluno["id"]?>">Excluir</a></td>
                     </tr>
                 <?php } ?>
             </tbody>
