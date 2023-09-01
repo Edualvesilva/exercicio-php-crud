@@ -1,9 +1,11 @@
-function calculateMediaAndSituacao() {
-    const primeira = parseFloat(document.getElementById('primeira').value) || 0;
-    const segunda = parseFloat(document.getElementById('segunda').value) || 0;
-    const media = (primeira + segunda) / 2;
+function calculateMedia(primeira,segunda) {
+
+    return (primeira + segunda) / 2;
+};
+
+function determineSituacao(media){
+  
     let situacao = "";
-    
     if (media >= 7) {
         situacao = 'Aprovado';
     } else if (media >= 5) {
@@ -11,15 +13,21 @@ function calculateMediaAndSituacao() {
     } else {
         situacao = 'Reprovado';
     }
-    // Update the media and situacao fields
+    return situacao;
+};
+function AtualizarMediaSituacao(){
+
+    const primeira = parseFloat(document.getElementById('primeira').value ) || 0;
+    const segunda = parseFloat(document.getElementById('segunda').value ) || 0;
+    const media = calculateMedia(primeira, segunda);
+    const situacao = determineSituacao(media);
+
     document.getElementById('media').value = media.toFixed(2);
     document.getElementById('situacao').value = situacao;
-}
+};
+    
+document.getElementById('primeira').addEventListener('input', AtualizarMediaSituacao);
+document.getElementById('segunda').addEventListener('input', AtualizarMediaSituacao );
 
-// Attach the calculateMediaAndSituacao function to input events
-document.getElementById('primeira').addEventListener('input', calculateMediaAndSituacao);
-document.getElementById('segunda').addEventListener('input', calculateMediaAndSituacao);
-
-// Calculate and update media and situacao on page load
-calculateMediaAndSituacao();
+AtualizarMediaSituacao();
 
